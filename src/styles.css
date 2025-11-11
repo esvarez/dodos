@@ -1,2 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
+
+/* stylelint-disable-next-line at-rule-no-unknown */
+@theme {
+    --color-primary: #6BBE92;
+    --color-accent: #F6F9F0;
+    --color-main: #2D2D2D;
+    --color-secondary: #828282;
+    --color-background: #FFFFFF;
+}
+
+
+/* Tema oscuro opcional (Midnight Minimal) */
+/* .dark {
+  --color-primary: #7DC4E4;
+  --color-accent: #14161b;
+  --color-text-main: #EAEAEA;
+  --color-text-secondary: #9A9A9A;
+  --color-background: #0E0E14;
+} */

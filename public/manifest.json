@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Dodos - TODO App",
+  "version": "1.0.0",
+  "description": "A simple and lightweight TODO app for Chrome",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": ["storage"]
+}

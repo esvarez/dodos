@@ -3,15 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Extension Popup</title>
+  <title>Dodos - TODO App</title>
   <link rel="stylesheet" href="./src/styles.css">
 </head>
 <body>
   <div class="container">
-    <h1>Chrome Extension</h1>
-    <p>Welcome to your extension!</p>
-    <button id="actionBtn">Click Me</button>
-    <div id="output"></div>
+    <h1>Dodos</h1>
+
+    <!-- Task Creation Form -->
+    <form id="taskForm" class="task-form">
+      <input
+        type="text"
+        id="taskInput"
+        placeholder="Add a new task..."
+        class="task-input"
+        required
+      />
+      <button type="submit" class="add-btn">Add Task</button>
+    </form>
+
+    <!-- Tasks List -->
+    <div id="tasksList" class="tasks-list"></div>
   </div>
   <script type="module" src="./src/popup.ts"></script>
 </body>

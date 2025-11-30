@@ -7,23 +7,25 @@
   <link rel="stylesheet" href="./src/styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Dodos</h1>
+  <div class="p-5 flex flex-col gap-4 animate-slideInFade">
+    <h1 class="text-2xl font-bold text-gray-900 m-0 animate-fadeIn">Dodos</h1>
 
     <!-- Task Creation Form -->
-    <form id="taskForm" class="task-form">
+    <form id="taskForm" class="flex gap-2 animate-fadeIn-delay-1">
       <input
         type="text"
         id="taskInput"
         placeholder="Add a new task..."
-        class="task-input"
+        class="flex-1 px-3 py-2.5 border-2 border-gray-200 rounded-lg text-sm outline-none transition-colors focus:border-blue-500"
         required
       />
-      <button type="submit" class="add-btn">Add Task</button>
+      <button type="submit" class="px-4 py-2.5 bg-blue-500 text-white rounded-lg text-sm font-medium cursor-pointer transition-colors hover:bg-blue-600 active:bg-blue-700 whitespace-nowrap">
+        Add Task
+      </button>
     </form>
 
     <!-- Tasks List -->
-    <div id="tasksList" class="tasks-list"></div>
+    <div id="tasksList" class="flex flex-col gap-2 max-h-96 overflow-y-auto animate-fadeIn-delay-2"></div>
   </div>
   <script type="module" src="./src/popup.ts"></script>
 </body>

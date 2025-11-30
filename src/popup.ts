@@ -58,14 +58,14 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!tasksList) return;
 
     if (tasks.length === 0) {
-      tasksList.innerHTML = '<p class="empty-state">No tasks yet. Add one above!</p>';
+      tasksList.innerHTML = '<p class="text-center text-gray-400 text-sm py-8 px-4 m-0">No tasks yet. Add one above!</p>';
       return;
     }
 
     tasksList.innerHTML = tasks
       .map(task => `
-        <div class="task-item" data-id="${task.id}">
-          <span class="task-text">${escapeHtml(task.text)}</span>
+        <div class="p-3 bg-white border border-gray-200 rounded-lg flex items-center gap-2 transition-all hover:border-gray-300 hover:shadow-sm animate-slideIn" data-id="${task.id}">
+          <span class="flex-1 text-sm text-gray-700 break-words">${escapeHtml(task.text)}</span>
         </div>
       `)
       .join('');

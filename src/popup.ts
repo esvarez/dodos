@@ -1,7 +1,10 @@
+type Priority = 'low' | 'medium' | 'high';
+
 interface Task {
   id: string;
   text: string;
   completed: boolean;
+  priority: Priority;
   createdAt: number;
 }
 
@@ -9,6 +12,7 @@ interface Task {
 document.addEventListener('DOMContentLoaded', function() {
   const taskForm = document.getElementById('taskForm') as HTMLFormElement;
   const taskInput = document.getElementById('taskInput') as HTMLInputElement;
+  const prioritySelect = document.getElementById('prioritySelect') as HTMLSelectElement;
   const tasksList = document.getElementById('tasksList') as HTMLDivElement;
 
   // Load tasks on startup
@@ -26,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
       id: Date.now().toString(),
       text: taskText,
       completed: false,
+      priority: prioritySelect.value as Priority,
       createdAt: Date.now()
     };
 
@@ -66,9 +71,23 @@ document.addEventListener('DOMContentLoaded', function() {
       .map(task => `
         <div class="p-3 bg-white border border-gray-200 rounded-lg flex items-center gap-2 transition-all hover:border-gray-300 hover:shadow-sm animate-slideIn" data-id="${task.id}">
           <span class="flex-1 text-sm text-gray-700 break-words">${escapeHtml(task.text)}</span>
+          <span class="px-2 py-0.5 text-xs font-medium rounded ${getPriorityClasses(task.priority)}">${task.priority}</span>
         </div>
       `)
       .join('');
+  }
+
+  function getPriorityClasses(priority: Priority): string {
+    switch (priority) {
+      case 'high':
+        return 'bg-red-100 text-red-700';
+      case 'medium':
+        return 'bg-yellow-100 text-yellow-700';
+      case 'low':
+        return 'bg-green-100 text-green-700';
+      default:
+        return 'bg-gray-100 text-gray-700';
+    }
   }
 
   function escapeHtml(text: string): string {
